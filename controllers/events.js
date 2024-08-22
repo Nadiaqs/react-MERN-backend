@@ -1,7 +1,7 @@
 const { response } = require('express');
 const Evento = require('../models/Evento');
 
-const getEventos = async(req, res = response ) => {
+const getEventos = async( req, res = response ) => {
 
     const eventos = await Evento.find()
                                 .populate('user','name');
@@ -9,11 +9,11 @@ const getEventos = async(req, res = response ) => {
     res.json({
         ok: true,
         eventos
-    })
+    });
 
 }
 
-const crearEvento = async(req, res = response ) => {
+const crearEvento = async( req, res = response ) => {
 
     //vereificar que tenga el evento
     //console.log( req.body );
@@ -39,7 +39,7 @@ const crearEvento = async(req, res = response ) => {
     }
 }
 
-const actualizarEvento = async(req, res = response ) => {
+const actualizarEvento = async( req, res = response ) => {
 
     const eventoId = req.params.id;
     const uid = req.uid;
@@ -121,9 +121,6 @@ const eliminarEvento = async (req, res = response ) => {
         })
         
     }
-
-
-
     
 }
 

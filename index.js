@@ -1,7 +1,9 @@
 const express = require('express');
-const { dbConnection } = require('./database/config');
-const cors = require('cors');
 require('dotenv').config();
+const cors = require('cors');
+const { dbConnection } = require('./database/config');
+
+
 
 
 
@@ -22,12 +24,12 @@ app.use( express.json() );
 //significa que todo lo que sea formato json lo voy a leer y extraer la infomacion
 
 //Rutas
-app.use('/api/auth', require('./routes/auth'));
+app.use('/api/auth', require('./routes/auth') );
 app.use('/api/events', require('./routes/events'));
 // TODO: CRUD: Eventos
 
 
 //Escuchar peticiones
 app.listen( process.env.PORT, () =>{
-    //console.log(`Servidor corriendo en puerto ${ process.env.PORT }`);
+    console.log(`Servidor corriendo en puerto ${ process.env.PORT }`);
 });

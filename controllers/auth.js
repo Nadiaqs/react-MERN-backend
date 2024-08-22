@@ -4,7 +4,7 @@ const Usuario = require('../models/Usuario');
 const { generarJWT } = require('../helpers/jwt');
 
 
-const crearUauario = async(req, res = response ) => {
+const crearUsuario = async (req, res = response ) => {
 
     const { email, password } = req.body;
     
@@ -51,7 +51,7 @@ const crearUauario = async(req, res = response ) => {
     
 };
 
-const loginUsuario = async(req, res = response) => {
+const loginUsuario = async (req, res = response) => {
 
     const { email, password } = req.body;
 
@@ -98,7 +98,7 @@ const loginUsuario = async(req, res = response) => {
     
 };
 
-const revalidarToken = async(req, res = response) => {
+const revalidarToken = async (req, res = response) => {
 
     const { uid, name } = req;
     
@@ -108,12 +108,13 @@ const revalidarToken = async(req, res = response) => {
    
     res.json({
         ok: true,
+        uid, name,
         token
     })
 };
 
 module.exports = {
-    crearUauario,
+    crearUsuario,
     loginUsuario,
     revalidarToken
 }
